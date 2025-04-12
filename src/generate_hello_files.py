@@ -7,12 +7,25 @@
 import json
 import os
 
-JSON_PATH = "src/programming-languages.json"
+CURRENT_FILE_DIR = os.path.dirname(os.path.abspath(__file__))
+JSON_FILENAME = "programming-languages.json"
+JSON_PATH = os.path.join(CURRENT_FILE_DIR, JSON_FILENAME)
 
-def get_all_extensions(): pass
-def get_all_languages():  pass
+def get_all_extensions(
+        json_path: str|os.PathLike=JSON_PATH):
+    """
+    Gathers all extensions listed in the programming-languages.json. Currently hardcoded to the JSON file's format, so this is prone to breaking. DONT MESS W ME PLS.
+    @param path: path to the JSON file to read
+    """
+    with open(json_path) as json_data:
+        data = json.load(json_data)
+
+    extensions=list()
+    for entry in data: extensions.append(entry["extensions"][0])
+    return extensions
+
 def create_files(
-        path: str|os.PathLike=os.path.dirname(os.path.abspath(__file__)),
+        path: str|os.PathLike=CURRENT_FILE_DIR,
         name: str="hello",
         extensions: set={".txt"}):
     """
@@ -28,4 +41,4 @@ def create_files(
         open(filepath, 'a').close()
 
 if __name__ == "__main__":
-    create_files()
+    print(get_all_extensions())

@@ -97,10 +97,6 @@
        ]
     },
     {
-       "name":"Ant Build System",
-       "type":"data"
-    },
-    {
        "name":"ApacheConf",
        "type":"markup",
        "extensions":[
@@ -1292,10 +1288,6 @@
        ]
     },
     {
-       "name":"Isabelle ROOT",
-       "type":"programming"
-    },
-    {
        "name":"J",
        "type":"programming",
        "extensions":[
@@ -1751,10 +1743,6 @@
           ".matlab",
           ".m"
        ]
-    },
-    {
-       "name":"Maven POM",
-       "type":"data"
     },
     {
        "name":"Max",
